@@ -1,4 +1,46 @@
 <?php
+    $user = 'root';
+    $password = 'root';
+    $db = 'inventory';
+    $host = 'localhost';
+    $port = 3306;
+
+    echo "variables created";
+
+    $link = mysqli_init();
+    $conn = mysqli_real_connect(
+        $link,
+        $host,
+        $user,
+        $password,
+        $db,
+        $port);
+
+    echo "connection established";
+
+    $sqldb = "CREATE DATABASE Inventory";
+    if ($conn->query($sqldb) === TRUE) {
+        echo "Database created successfully";
+    } else {
+        echo "Error creating database: " . $conn->error;
+    }
+
+    // sql to create table
+    $sql = "CREATE TABLE MyGuests (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        firstname VARCHAR(30) NOT NULL,
+        lastname VARCHAR(30) NOT NULL,
+        email VARCHAR(50),
+        reg_date TIMESTAMP)";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Table MyGuests created successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
+
+    $conn->close();
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
@@ -34,3 +76,4 @@
     }
     header("Location: contact-failure.html");
     exit;
+
