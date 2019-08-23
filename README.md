@@ -1,3 +1,3 @@
-# joberstein.github.io
+# Portfolio v1
 
-Portfolio website for Jesse Oberstein. Hosted by Github Pages. Also accessible from www.jesseoberstein.com.
+First public iteration of my portfolio website, hosted by Github Pages.
